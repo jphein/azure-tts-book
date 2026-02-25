@@ -1,0 +1,14 @@
+# Secrets — never commit
+.env
+tts_defaults.json
+
+# Generated audio (large binary files)
+audio/
+
+# Source text and local Claude context
+text/
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
