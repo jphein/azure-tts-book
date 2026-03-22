@@ -1,3 +1,4 @@
+<!-- claude-md-version: 3eabfaa | updated: 2026-03-22 -->
 # CLAUDE.md — unshuffled
 
 Azure TTS text-to-audio converter. Turns text files into narrated MP3s using Azure AI Speech REST API.
