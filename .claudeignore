@@ -1,4 +1,15 @@
+# Generated audio (large binary files)
 audio/
 text/
 *.mp3
 *.wav
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+
+# Tooling
+.claude/
