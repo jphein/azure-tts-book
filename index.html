@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Authority: The Tea House — Audiobook</title>
+<meta name="theme-color" content="#0a0510" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e8" media="(prefers-color-scheme: light)">
+<script>
+// Apply saved theme immediately to prevent flash (matches portal pattern)
+(function() {
+  var saved = localStorage.getItem('ia-theme');
+  if (saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+    document.documentElement.classList.add('light-theme');
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f0d080'/%3E%3Cstop offset='100%25' stop-color='%23d0a0ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='6' width='40' height='52' rx='3' fill='%231a0e24' stroke='%23f0d080' stroke-width='2'/%3E%3Crect x='16' y='10' width='32' height='44' rx='2' fill='none' stroke='%23d0a0ff' stroke-width='0.8' opacity='0.5'/%3E%3Cpath d='M32 20 L38 30 L32 28 L26 30 Z' fill='url(%23g)' opacity='0.9'/%3E%3Cpath d='M32 32 L38 42 L32 40 L26 42 Z' fill='url(%23g)' opacity='0.6'/%3E%3Ccircle cx='32' cy='16' r='2' fill='%23f0d080'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-void: #0a0510;
+  --bg-forest: #060410;
+  --gem-gold: #f0d080;
+  --gem-gold-deep: #6b4c1a;
+  --gem-amethyst: #d0a0ff;
+  --gem-amethyst-deep: #3a1a5e;
+  --gem-emerald: #80e8a0;
+  --gem-emerald-deep: #1a4a2d;
+  --gem-ruby: #ff9090;
+  --gem-ruby-deep: #5a1a1a;
+  --gem-sapphire: #90c8ff;
+  --gem-sapphire-deep: #1a3a5e;
+  --text-gold: #d4a574;
+  --text-leather: #b8a898;
+  --text-dim: rgba(200,180,150,0.5);
+  --gold-rim: rgba(200,170,90,1);
+  --gold-rim-dim: rgba(200,170,90,0.12);
+  --gold-rim-bright: rgba(200,170,90,0.45);
+  --leather-surface: rgba(95,68,35,0.95);
+  --arcane-surface: rgba(85,55,70,0.95);
+
+  --grimoire-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Ccircle cx='1' cy='1' r='0.6' fill='rgba(180,160,120,0.03)'/%3E%3Ccircle cx='5' cy='3' r='0.4' fill='rgba(140,120,80,0.025)'/%3E%3Ccircle cx='3' cy='6' r='0.5' fill='rgba(100,70,140,0.02)'/%3E%3C/svg%3E");
+  --grimoire-radial: radial-gradient(ellipse at 30% 25%, rgba(85,55,70,0.95), rgba(60,38,55,0.97) 30%, rgba(42,25,42,0.98) 60%, rgba(28,16,30,0.99));
+  --grimoire-surface: var(--grimoire-grain), var(--grimoire-radial);
+  --grimoire-border: 1px solid var(--gold-rim-dim);
+  --grimoire-shadow: 0 3px 12px rgba(15,8,20,0.7), inset 0 2px 1px rgba(200,170,110,0.1), inset 0 -3px 2px rgba(8,4,12,0.5);
+
+  --font-heading: 'Cinzel', serif;
+  --font-display: 'Cinzel Decorative', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --page-bg: var(--bg-void);
+  --page-bg-gradient: linear-gradient(180deg, var(--bg-void) 0%, var(--bg-forest) 50%, var(--bg-void) 100%);
+  --hero-title-color: var(--gem-gold);
+  --hero-subtitle-color: var(--gem-amethyst);
+  --body-text-color: var(--text-leather);
+  --heading-color: var(--text-gold);
+  --badge-bg: rgba(208,160,255,0.12);
+  --badge-border: rgba(208,160,255,0.3);
+  --badge-text: var(--gem-amethyst);
+  --divider-color: var(--gold-rim-bright);
+  --act-bg: rgba(30,18,38,0.6);
+  --act-border: var(--gold-rim-dim);
+  --chapter-hover-bg: rgba(200,170,90,0.06);
+  --chapter-active-bg: rgba(200,170,90,0.1);
+  --chapter-active-border: var(--gem-gold);
+  --chapter-completed-opacity: 0.55;
+  --player-bg: linear-gradient(180deg, rgba(42,25,42,0.98), rgba(28,16,30,0.99));
+  --progress-track: rgba(200,170,90,0.15);
+  --progress-fill: var(--gem-gold);
+  --progress-glow: 0 0 8px rgba(240,208,128,0.4);
+  --control-color: var(--text-leather);
+  --control-hover: var(--gem-gold);
+  --speed-bg: rgba(200,170,90,0.1);
+  --speed-active-bg: rgba(200,170,90,0.25);
+  --scroll-thumb: rgba(200,170,90,0.2);
+  --scroll-track: transparent;
+  --overlay-bg: rgba(10,5,16,0.92);
+  --particle-color-1: rgba(240,208,128,0.3);
+  --particle-color-2: rgba(208,160,255,0.2);
+  --mote-shadow: 0 0 6px rgba(240,208,128,0.4);
+}
+
+/* ===== LIGHT THEME — Realmwatch Portal Parchment ===== */
+/* Applied via .light-theme class (set by JS from prefers-color-scheme or manual toggle) */
+html.light-theme {
+  /* Backgrounds — portal parchment tones: void #f5f0e8, grimoire #ece5d8, leather #e2dace, parchment #d8d0c2 */
+  --page-bg: #f5f0e8;
+  --page-bg-gradient: linear-gradient(180deg, #f5f0e8 0%, #ece5d8 40%, #e2dace 70%, #f5f0e8 100%);
+  --bg-void: #f5f0e8;
+  --bg-forest: #ece5d8;
+
+  /* Text — portal: text-primary #4a3520, text-secondary #6b5540, text-tertiary rgba(90,70,45,0.45) */
+  --hero-title-color: #4a3520;
+  --hero-subtitle-color: #7040a0;
+  --body-text-color: #6b5540;
+  --heading-color: #4a3520;
+  --text-gold: #4a3520;
+  --text-leather: #6b5540;
+  --text-dim: rgba(90, 70, 45, 0.45);
+
+  /* Badges */
+  --badge-bg: rgba(112, 64, 160, 0.08);
+  --badge-border: rgba(112, 64, 160, 0.2);
+  --badge-text: #7040a0;
+
+  /* Dividers & Act panels */
+  --divider-color: rgba(140, 110, 60, 0.35);
+  --act-bg: rgba(236, 229, 216, 0.7);
+  --act-border: rgba(140, 110, 60, 0.18);
+
+  /* Chapters */
+  --chapter-hover-bg: rgba(140, 110, 60, 0.08);
+  --chapter-active-bg: rgba(140, 110, 60, 0.14);
+  --chapter-active-border: #8b6914;
+  --chapter-completed-opacity: 0.5;
+
+  /* Gold rims — portal: border rgba(140, 110, 60, ...) */
+  --gold-rim-dim: rgba(140, 110, 60, 0.18);
+  --gold-rim-bright: rgba(140, 110, 60, 0.35);
+  --gold-rim: rgba(140, 110, 60, 1);
+
+  /* Gem accents — portal muted tones */
+  --gem-gold: #8b6914;
+  --gem-amethyst: #7040a0;
+  --gem-emerald: #2a7a42;
+  --gem-ruby: #b03030;
+  --gem-sapphire: #2a6090;
+
+  /* Grimoire surface — portal parchment grain + warm radial */
+  --grimoire-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Ccircle cx='4' cy='4' r='0.7' fill='rgba(140,110,60,0.03)'/%3E%3Ccircle cx='1' cy='7' r='0.5' fill='rgba(112,64,160,0.02)'/%3E%3Ccircle cx='7' cy='2' r='0.4' fill='rgba(140,110,60,0.02)'/%3E%3C/svg%3E");
+  --grimoire-radial: radial-gradient(ellipse at 30% 25%, rgba(236,229,216,0.95), rgba(226,218,206,0.9) 30%, rgba(216,208,194,0.88) 60%, rgba(236,229,216,0.92));
+  --grimoire-surface: var(--grimoire-grain), var(--grimoire-radial);
+  --grimoire-border: 1px solid rgba(140, 110, 60, 0.18);
+  --grimoire-shadow: 0 3px 12px rgba(100, 80, 40, 0.12), inset 0 2px 1px rgba(255, 250, 240, 0.5), inset 0 -2px 2px rgba(140, 110, 60, 0.06);
+
+  /* Player bar */
+  --player-bg: linear-gradient(180deg, rgba(236,229,216,0.98), rgba(226,218,206,0.98));
+
+  /* Progress bar */
+  --progress-track: rgba(140, 110, 60, 0.18);
+  --progress-fill: #8b6914;
+  --progress-glow: 0 0 4px rgba(140, 110, 60, 0.25);
+
+  /* Controls — portal: accent #8b6914, accent-dim #a07830 */
+  --control-color: #6b5540;
+  --control-hover: #4a3520;
+  --speed-bg: rgba(140, 110, 60, 0.1);
+  --speed-active-bg: rgba(140, 110, 60, 0.22);
+
+  /* Scrollbar */
+  --scroll-thumb: rgba(140, 110, 60, 0.2);
+
+  /* Overlay */
+  --overlay-bg: rgba(245, 240, 232, 0.95);
+
+  /* Particles — very subtle on parchment */
+  --particle-color-1: rgba(140, 110, 60, 0.1);
+  --particle-color-2: rgba(112, 64, 160, 0.06);
+  --mote-shadow: 0 0 3px rgba(140, 110, 60, 0.15);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--page-bg-gradient);
+  color: var(--body-text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 140px;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-rim-bright); }
+
+/* ===== PARTICLES ===== */
+#particles { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.mote { position: absolute; width: 3px; height: 3px; border-radius: 50%; opacity: 0; animation: drift-up linear infinite; }
+.mote--gold { background: var(--particle-color-1); box-shadow: var(--mote-shadow); }
+.mote--amethyst { background: var(--particle-color-2); box-shadow: 0 0 6px rgba(208,160,255,0.3); }
+@keyframes drift-up {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+}
+
+/* ===== HERO ===== */
+.hero { position: relative; z-index: 1; text-align: center; padding: 4rem 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+.hero__series {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 700;
+  color: var(--hero-title-color); letter-spacing: 0.15em;
+  text-shadow: 0 0 30px rgba(240,208,128,0.3), 0 0 60px rgba(240,208,128,0.15);
+  margin-bottom: 0.3rem; line-height: 1.2;
+}
+.hero__book-title {
+  font-family: var(--font-heading); font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 400;
+  color: var(--hero-subtitle-color); letter-spacing: 0.08em; margin-bottom: 1.2rem;
+}
+.hero__badge {
+  display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--badge-text);
+  background: var(--badge-bg); border: 1px solid var(--badge-border);
+  border-radius: 20px; padding: 0.3rem 1rem; margin-bottom: 1.5rem;
+}
+.hero__tagline {
+  font-family: var(--font-body); font-size: 0.92rem; font-weight: 400; font-style: italic;
+  color: var(--text-gold); line-height: 1.65; margin-bottom: 1.2rem;
+  max-width: 560px; margin-left: auto; margin-right: auto;
+}
+.hero__synopsis {
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 300;
+  color: var(--body-text-color); line-height: 1.7;
+  max-width: 540px; margin-left: auto; margin-right: auto;
+}
+.hero__narrator { margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.05em; }
+
+.divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem auto; max-width: 400px; }
+.divider__line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--divider-color), transparent); }
+.divider__rune { width: 12px; height: 12px; transform: rotate(45deg); border: 1px solid var(--divider-color); position: relative; }
+.divider__rune::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 4px; height: 4px;
+  transform: translate(-50%, -50%); background: var(--divider-color); border-radius: 1px;
+}
+
+/* ===== CHAPTER LIST ===== */
+.chapter-list { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1rem 2rem; }
+
+.act {
+  margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden;
+  background: var(--grimoire-surface); border: var(--grimoire-border); box-shadow: var(--grimoire-shadow);
+}
+.act + .act { margin-top: 1rem; }
+
+.act__header {
+  display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.2rem;
+  cursor: pointer; user-select: none; transition: background 0.2s;
+}
+.act__header:hover { background: var(--chapter-hover-bg); }
+
+.act__chevron {
+  width: 18px; height: 18px; flex-shrink: 0; color: var(--text-dim);
+  transition: transform 0.3s ease, color 0.2s;
+}
+.act--collapsed .act__chevron { transform: rotate(-90deg); }
+.act__header:hover .act__chevron { color: var(--gem-gold); }
+
+.act__info { flex: 1; min-width: 0; }
+.act__name { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; color: var(--heading-color); letter-spacing: 0.04em; }
+.act__desc { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.15rem; line-height: 1.5; }
+
+.act__chapters { overflow: hidden; transition: max-height 0.4s ease; }
+.act--collapsed .act__chapters { max-height: 0 !important; }
+
+.chapter {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.7rem 1.2rem 0.7rem 1.6rem; cursor: pointer;
+  transition: background 0.2s, border-color 0.2s; border-left: 3px solid transparent; position: relative;
+}
+.chapter:hover { background: var(--chapter-hover-bg); }
+.chapter--active { background: var(--chapter-active-bg); border-left-color: var(--chapter-active-border); }
+.chapter--active .chapter__title { color: var(--gem-gold); }
+.chapter--completed { opacity: var(--chapter-completed-opacity); }
+.chapter--completed:hover { opacity: 0.8; }
+
+.chapter__num {
+  width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600; color: var(--gem-gold);
+  border: 1px solid var(--gold-rim-dim); border-radius: 50%; position: relative;
+}
+.chapter--completed .chapter__num::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
+  transform: translate(-50%, -50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2380e8a0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.chapter--completed .chapter__num-text { opacity: 0; }
+
+.chapter__title {
+  flex: 1; font-size: 0.88rem; font-weight: 400; color: var(--body-text-color); min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.2s;
+}
+.chapter__duration {
+  font-size: 0.75rem; font-weight: 400; color: var(--text-dim); flex-shrink: 0;
+  min-width: 40px; text-align: right; font-variant-numeric: tabular-nums;
+}
+.chapter__play-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--gem-gold); opacity: 0; transition: opacity 0.2s; }
+.chapter:hover .chapter__play-icon { opacity: 0.7; }
+.chapter--active .chapter__play-icon { opacity: 1; }
+
+/* ===== PLAYER BAR ===== */
+.player {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  background: var(--grimoire-surface); background-color: var(--bg-void);
+  border-top: 1px solid var(--gold-rim-dim);
+  box-shadow: 0 -4px 24px rgba(15,8,20,0.6), var(--grimoire-shadow);
+  backdrop-filter: blur(12px); padding: 0; transition: transform 0.3s ease;
+}
+.player--hidden { transform: translateY(100%); }
+
+.player__progress-wrap {
+  width: 100%; height: 28px; display: flex; align-items: center;
+  padding: 0 12px; gap: 8px; cursor: pointer; position: relative;
+}
+.player__time { font-size: 0.68rem; font-variant-numeric: tabular-nums; color: var(--text-dim); min-width: 42px; user-select: none; }
+.player__time--end { text-align: right; }
+
+.player__progress-track { flex: 1; height: 4px; background: var(--progress-track); border-radius: 2px; position: relative; overflow: visible; }
+.player__progress-fill { height: 100%; background: var(--progress-fill); border-radius: 2px; width: 0%; position: relative; transition: width 0.1s linear; }
+.player__progress-fill::after {
+  content: ''; position: absolute; right: -4px; top: 50%; width: 10px; height: 10px;
+  background: var(--progress-fill); border-radius: 50%; transform: translateY(-50%);
+  box-shadow: var(--progress-glow); opacity: 0; transition: opacity 0.2s;
+}
+.player__progress-wrap:hover .player__progress-fill::after { opacity: 1; }
+
+.player__controls { display: flex; align-items: center; justify-content: center; padding: 0.4rem 1rem 0.6rem; gap: 0.5rem; flex-wrap: nowrap; }
+.player__info { flex: 1; min-width: 0; padding-right: 0.5rem; }
+.player__chapter-title {
+  font-family: var(--font-heading); font-size: 0.82rem; font-weight: 600; color: var(--heading-color);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.player__act-name { font-size: 0.68rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.player__transport { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+
+.btn-transport {
+  background: none; border: none; cursor: pointer; color: var(--control-color); padding: 6px; border-radius: 50%;
+  transition: color 0.2s, background 0.2s, transform 0.1s; display: flex; align-items: center; justify-content: center;
+}
+.btn-transport:hover { color: var(--control-hover); background: rgba(200,170,90,0.08); }
+.btn-transport:active { transform: scale(0.93); }
+.btn-transport svg { width: 20px; height: 20px; }
+
+.btn-play {
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold-rim-bright);
+  background: rgba(200,170,90,0.06); color: var(--gem-gold);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.btn-play:hover { border-color: var(--gem-gold); background: rgba(200,170,90,0.12); box-shadow: 0 0 16px rgba(240,208,128,0.2); }
+.btn-play:active { transform: scale(0.95); }
+.btn-play svg { width: 22px; height: 22px; }
+.btn-play--playing { animation: pulse-glow 2s ease-in-out infinite; }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(240,208,128,0.1); }
+  50% { box-shadow: 0 0 20px rgba(240,208,128,0.25); }
+}
+
+.player__right { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; min-width: 0; }
+
+.volume-group { display: flex; align-items: center; gap: 0.3rem; }
+.btn-mute { background: none; border: none; cursor: pointer; color: var(--control-color); padding: 4px; display: flex; align-items: center; transition: color 0.2s; }
+.btn-mute:hover { color: var(--control-hover); }
+.btn-mute svg { width: 18px; height: 18px; }
+
+.volume-slider {
+  -webkit-appearance: none; appearance: none; width: 70px; height: 4px;
+  background: var(--progress-track); border-radius: 2px; outline: none; cursor: pointer;
+}
+.volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: var(--gem-gold); border-radius: 50%; cursor: pointer; box-shadow: 0 0 4px rgba(240,208,128,0.3); }
+.volume-slider::-moz-range-thumb { width: 12px; height: 12px; background: var(--gem-gold); border: none; border-radius: 50%; cursor: pointer; }
+
+.btn-speed {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; color: var(--text-gold);
+  background: var(--speed-bg); border: 1px solid var(--gold-rim-dim); border-radius: 12px;
+  padding: 0.2rem 0.55rem; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; flex-shrink: 0;
+}
+.btn-speed:hover { background: var(--speed-active-bg); border-color: var(--gold-rim-bright); }
+
+.btn-help {
+  background: none; border: 1px solid var(--gold-rim-dim); color: var(--text-dim);
+  width: 24px; height: 24px; border-radius: 50%; font-family: var(--font-body);
+  font-size: 0.72rem; font-weight: 600; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: color 0.2s, border-color 0.2s; flex-shrink: 0;
+}
+.btn-help:hover { color: var(--gem-gold); border-color: var(--gold-rim-bright); }
+
+/* ===== HELP OVERLAY ===== */
+.help-overlay {
+  position: fixed; inset: 0; z-index: 200; background: var(--overlay-bg);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s; backdrop-filter: blur(6px);
+}
+.help-overlay--visible { opacity: 1; pointer-events: all; }
+
+.help-panel {
+  background: var(--grimoire-surface); border: var(--grimoire-border); box-shadow: var(--grimoire-shadow);
+  border-radius: 12px; padding: 2rem; max-width: 420px; width: 90%; max-height: 80vh; overflow-y: auto;
+}
+.help-panel h2 { font-family: var(--font-heading); font-size: 1.1rem; color: var(--heading-color); margin-bottom: 1rem; text-align: center; }
+.help-panel__row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid var(--gold-rim-dim); }
+.help-panel__key {
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; color: var(--gem-gold);
+  background: rgba(200,170,90,0.08); padding: 0.15rem 0.45rem; border-radius: 4px; border: 1px solid var(--gold-rim-dim);
+}
+.help-panel__action { font-size: 0.82rem; color: var(--body-text-color); }
+.help-panel__close {
+  display: block; margin: 1.2rem auto 0; background: none; border: 1px solid var(--gold-rim-bright);
+  color: var(--text-gold); padding: 0.4rem 1.5rem; border-radius: 20px;
+  font-family: var(--font-heading); font-size: 0.82rem; cursor: pointer; transition: background 0.2s;
+}
+.help-panel__close:hover { background: rgba(200,170,90,0.1); }
+
+.spinner {
+  display: inline-block; width: 14px; height: 14px; border: 2px solid var(--gold-rim-dim);
+  border-top-color: var(--gem-gold); border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero__series { font-size: 1.6rem; letter-spacing: 0.08em; }
+  .hero__book-title { font-size: 1rem; }
+  .chapter-list { padding: 0 0.5rem 2rem; }
+  .act__header { padding: 0.8rem 1rem; }
+  .act__desc { display: none; }
+  .chapter { padding: 0.6rem 0.8rem 0.6rem 1.2rem; gap: 0.6rem; }
+  .chapter__title { font-size: 0.82rem; }
+  .player__controls { flex-wrap: wrap; padding: 0.3rem 0.6rem 0.5rem; gap: 0.3rem; }
+  .player__info { order: 1; flex-basis: 100%; text-align: center; padding: 0 0 0.2rem 0; }
+  .player__transport { order: 2; }
+  .player__right { order: 3; justify-content: center; flex-basis: auto; }
+  .volume-slider { width: 50px; }
+  body { padding-bottom: 160px; }
+}
+@media (max-width: 380px) { .volume-group { display: none; } }
+
+/* ===== LIGHT THEME — Component Overrides (portal-style) ===== */
+html.light-theme body {
+  background-image: var(--grimoire-grain);
+}
+/* Subtle noise texture overlay — matches portal body::before */
+html.light-theme body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+html.light-theme .hero__series { text-shadow: none; }
+html.light-theme .player {
+  box-shadow: 0 -2px 12px rgba(100, 80, 40, 0.08);
+  backdrop-filter: blur(8px);
+}
+html.light-theme .btn-play--playing { animation: none; box-shadow: 0 0 8px rgba(140, 110, 60, 0.15); }
+html.light-theme .mote--amethyst { box-shadow: 0 0 4px rgba(112, 64, 160, 0.15); }
+html.light-theme .help-panel__key { background: rgba(140, 110, 60, 0.06); }
+html.light-theme ::selection { background: #8b6914; color: #fff; }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background: var(--act-bg, rgba(30,18,38,0.6));
+  border: 1px solid var(--gold-rim-dim);
+  color: var(--text-dim);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+  backdrop-filter: blur(6px);
+}
+.theme-toggle:hover {
+  color: var(--gem-gold);
+  border-color: var(--gold-rim-bright);
+  background: var(--chapter-hover-bg);
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark theme">&#9788;</button>
+<div id="particles"></div>
+
+<header class="hero">
+  <h1 class="hero__series">Inner Authority</h1>
+  <h2 class="hero__book-title">Book One: The Tea House</h2>
+  <div class="hero__badge">LitRPG / Progression Fantasy</div>
+  <p class="hero__tagline">"A card-based progression fantasy rooted in real psychology &mdash; where your Deck is your identity, your Pig is your enemy, and cooperation unlocks what competition never can."</p>
+  <p class="hero__synopsis">A young jeweler, displaced from a collapsed pocket realm, arrives among the first wave of inhabitants in a nearly empty multiverse. They can craft beautiful things &mdash; but when others unlock deeper magic, the Stupid Pig whispers they'll never understand the real power underneath.</p>
+  <p class="hero__narrator">Narrated by Ava &mdash; Azure Dragon HD Neural</p>
+  <div class="divider">
+    <span class="divider__line"></span>
+    <span class="divider__rune"></span>
+    <span class="divider__line"></span>
+  </div>
+</header>
+
+<main class="chapter-list" id="chapterList"></main>
+
+<div class="player player--hidden" id="player">
+  <div class="player__progress-wrap" id="progressWrap">
+    <span class="player__time" id="timeElapsed">0:00</span>
+    <div class="player__progress-track" id="progressTrack">
+      <div class="player__progress-fill" id="progressFill"></div>
+    </div>
+    <span class="player__time player__time--end" id="timeTotal">0:00</span>
+  </div>
+  <div class="player__controls">
+    <div class="player__info">
+      <div class="player__chapter-title" id="playerTitle">Select a chapter</div>
+      <div class="player__act-name" id="playerAct"></div>
+    </div>
+    <div class="player__transport">
+      <button class="btn-transport" id="btnPrev" title="Previous chapter (P)" aria-label="Previous chapter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      </button>
+      <button class="btn-transport btn-play" id="btnPlay" title="Play/Pause (Space)" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+      </button>
+      <button class="btn-transport" id="btnNext" title="Next chapter (N)" aria-label="Next chapter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      </button>
+    </div>
+    <div class="player__right">
+      <div class="volume-group">
+        <button class="btn-mute" id="btnMute" title="Mute (M)" aria-label="Toggle mute">
+          <svg id="iconVolume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg id="iconMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+      </div>
+      <button class="btn-speed" id="btnSpeed" title="Playback speed">1x</button>
+      <button class="btn-help" id="btnHelp" title="Keyboard shortcuts (?)" aria-label="Help">?</button>
+    </div>
+  </div>
+</div>
+
+<div class="help-overlay" id="helpOverlay">
+  <div class="help-panel">
+    <h2>Keyboard Shortcuts</h2>
+    <div class="help-panel__row"><span class="help-panel__key">Space</span><span class="help-panel__action">Play / Pause</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">&larr;</span><span class="help-panel__action">Seek back 10s</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">&rarr;</span><span class="help-panel__action">Seek forward 10s</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">Shift+&larr;</span><span class="help-panel__action">Seek back 30s</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">Shift+&rarr;</span><span class="help-panel__action">Seek forward 30s</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">&uarr;</span><span class="help-panel__action">Volume up 5%</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">&darr;</span><span class="help-panel__action">Volume down 5%</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">N</span><span class="help-panel__action">Next chapter</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">P</span><span class="help-panel__action">Previous chapter</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">M</span><span class="help-panel__action">Toggle mute</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">1&ndash;4</span><span class="help-panel__action">Jump to act</span></div>
+    <div class="help-panel__row"><span class="help-panel__key">?</span><span class="help-panel__action">Toggle this help</span></div>
+    <button class="help-panel__close" id="helpClose">Close</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ===== DATA =====
+  var acts = [
+    {
+      name: "Act 1 \u2014 Arrival",
+      description: "Establishes world, protagonist, Deck system, and the first wave of inhabitants.",
+      chapters: [
+        { num: 1, title: "The Door That Was Always There", file: "audio/Chapter_01_The_Door_That_Was_Always_There-azure-ava.mp3" },
+        { num: 2, title: "First Light in the Hearthlands", file: "audio/Chapter_02_First_Light_in_the_Hearthlands-ava.mp3" },
+        { num: 3, title: "What Hands Know", file: "audio/Chapter_03_What_Hands_Know-ava.mp3" },
+        { num: 4, title: "The First Settlement", file: "audio/Chapter_04_The_First_Settlement-ava.mp3" },
+        { num: 5, title: "The Stranger Who Asks Questions", file: "audio/Chapter_05_The_Stranger_Who_Asks_Questions-ava.mp3" },
+        { num: 6, title: "Building Together", file: "audio/Chapter_06_Building_Together-ava.mp3" },
+        { num: 7, title: "The Deck Grows", file: "audio/Chapter_07_The_Deck_Grows-ava.mp3" },
+        { num: 8, title: "The Resonance of Making", file: "audio/Chapter_08_The_Resonance_of_Making-ava.mp3" },
+        { num: 9, title: "The Inciting Incident", file: "audio/Chapter_09_The_Inciting_Incident-ava.mp3" }
+      ]
+    },
+    {
+      name: "Act 2A \u2014 The World Expands",
+      description: "Seren returns to face the community. Lira names the psychological patterns. Cass arrives and changes everything.",
+      chapters: [
+        { num: 10, title: "Coming Back Empty", file: "audio/Chapter_10_Coming_Back_Empty-ava.mp3" },
+        { num: 11, title: "What Went Wrong", file: "audio/Chapter_11_What_Went_Wrong-ava.mp3" },
+        { num: 12, title: "The Third Arrival", file: "audio/Chapter_12_The_Third_Arrival-ava.mp3" },
+        { num: 13, title: "First Teaching", file: "audio/Chapter_13_First_Teaching-ava.mp3" },
+        { num: 14, title: "Lira\u2019s Turn", file: "audio/Chapter_14_Liras_Turn-ava.mp3" },
+        { num: 15, title: "Three Hundred Repetitions", file: "audio/Chapter_15_Three_Hundred_Repetitions-ava.mp3" },
+        { num: 16, title: "Naming the Pig", file: "audio/Chapter_16_Naming_the_Pig-ava.mp3" },
+        { num: 17, title: "The Three Paths", file: "audio/Chapter_17_The_Three_Paths-ava.mp3" },
+        { num: 18, title: "Something Is Wrong with the Coach", file: "audio/Chapter_18_Something_Is_Wrong_with_the_Coach-ava.mp3" }
+      ]
+    },
+    {
+      name: "Act 2B \u2014 The Stakes Rise",
+      description: "Exploration into the corrupted zone. Duel system opens. The climactic duel reveals that integration beats raw power.",
+      chapters: [
+        { num: 19, title: "Deeper Into the Hearthlands", file: "audio/Chapter_19_Deeper_Into_the_Hearthlands-ava.mp3" },
+        { num: 20, title: "The Anomaly", file: "audio/Chapter_20_The_Anomaly-ava.mp3" },
+        { num: 21, title: "The Life Coach Names the Monster", file: "audio/Chapter_21_The_Life_Coach_Names_the_Monster-ava.mp3" },
+        { num: 22, title: "The Duel System Opens", file: "audio/Chapter_22_The_Duel_System_Opens-ava.mp3" },
+        { num: 23, title: "The Second Attempt", file: "audio/Chapter_23_The_Second_Attempt-ava.mp3" },
+        { num: 24, title: "The Hacker Finds an Exploit", file: "audio/Chapter_24_The_Hacker_Finds_an_Exploit-ava.mp3" },
+        { num: 25, title: "The Challenge", file: "audio/Chapter_25_The_Challenge-ava.mp3" },
+        { num: 26, title: "The Duel", file: "audio/Chapter_26_The_Duel-ava.mp3" },
+        { num: 27, title: "Aftermath", file: "audio/Chapter_27_Aftermath-ava.mp3" }
+      ]
+    },
+    {
+      name: "Act 3 \u2014 The Dreaming",
+      description: "The Essence Card opens a door to The Dreaming. Seren sees their Pig for the first time. A new realm beckons.",
+      chapters: [
+        { num: 28, title: "The Card That Shouldn\u2019t Exist", file: "audio/Chapter_28_The_Card_That_Shouldnt_Exist-ava.mp3" },
+        { num: 29, title: "A Door Into the Dreaming", file: "audio/Chapter_29_A_Door_Into_the_Dreaming-ava.mp3" },
+        { num: 30, title: "Waking Up Different", file: "audio/Chapter_30_Waking_Up_Different-ava.mp3" },
+        { num: 31, title: "The First Cooperative Enchantment", file: "audio/Chapter_31_The_First_Cooperative_Enchantment-ava.mp3" },
+        { num: 32, title: "What the Settlement Has Become", file: "audio/Chapter_32_What_the_Settlement_Has_Become-ava.mp3" },
+        { num: 33, title: "The Life Coach Cracks", file: "audio/Chapter_33_The_Life_Coach_Cracks-ava.mp3" },
+        { num: 34, title: "Three People in a Room", file: "audio/Chapter_34_Three_People_in_a_Room-ava.mp3" },
+        { num: 35, title: "The Tea House Grows a New Door", file: "audio/Chapter_35_The_Tea_House_Grows_a_New_Door-ava.mp3" },
+        { num: "E", title: "The Shadow Beneath", file: "audio/Epilogue_The_Shadow_Beneath-ava.mp3", isEpilogue: true }
+      ]
+    }
+  ];
+
+  // Flatten chapters with act references
+  var allChapters = [];
+  acts.forEach(function(act, actIdx) {
+    act.chapters.forEach(function(ch) {
+      allChapters.push({
+        num: ch.num, title: ch.title, file: ch.file,
+        isEpilogue: ch.isEpilogue || false, actIdx: actIdx, actName: act.name
+      });
+    });
+  });
+
+  // ===== STATE =====
+  var STORAGE_KEY = 'inner-authority-player';
+  var state = {
+    currentIndex: -1,
+    currentTime: 0,
+    completedChapters: [],
+    volume: 1,
+    playbackSpeed: 1,
+    collapsedActs: [],
+    _preMuteVolume: 1
+  };
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        var saved = JSON.parse(raw);
+        Object.keys(saved).forEach(function(k) { state[k] = saved[k]; });
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        currentIndex: state.currentIndex,
+        currentTime: audio.currentTime || 0,
+        completedChapters: state.completedChapters,
+        volume: state.volume,
+        playbackSpeed: state.playbackSpeed,
+        collapsedActs: state.collapsedActs,
+        _preMuteVolume: state._preMuteVolume
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  // ===== AUDIO =====
+  var audio = new Audio();
+  audio.preload = 'metadata';
+  var isPlaying = false;
+  var durations = {};
+
+  // ===== DOM =====
+  var playerEl = document.getElementById('player');
+  var btnPlay = document.getElementById('btnPlay');
+  var iconPlay = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var btnMute = document.getElementById('btnMute');
+  var iconVolume = document.getElementById('iconVolume');
+  var iconMuted = document.getElementById('iconMuted');
+  var volumeSlider = document.getElementById('volumeSlider');
+  var btnSpeed = document.getElementById('btnSpeed');
+  var btnHelp = document.getElementById('btnHelp');
+  var helpOverlay = document.getElementById('helpOverlay');
+  var helpClose = document.getElementById('helpClose');
+  var progressWrap = document.getElementById('progressWrap');
+  var progressTrack = document.getElementById('progressTrack');
+  var progressFill = document.getElementById('progressFill');
+  var timeElapsed = document.getElementById('timeElapsed');
+  var timeTotal = document.getElementById('timeTotal');
+  var playerTitle = document.getElementById('playerTitle');
+  var playerAct = document.getElementById('playerAct');
+  var chapterListEl = document.getElementById('chapterList');
+
+  // ===== PARTICLES =====
+  function createParticles() {
+    var container = document.getElementById('particles');
+    for (var i = 0; i < 20; i++) {
+      var mote = document.createElement('div');
+      var isGold = Math.random() > 0.35;
+      mote.className = 'mote ' + (isGold ? 'mote--gold' : 'mote--amethyst');
+      mote.style.left = (Math.random() * 100) + '%';
+      mote.style.bottom = -(Math.random() * 20) + '%';
+      var size = (2 + Math.random() * 2) + 'px';
+      mote.style.width = size;
+      mote.style.height = size;
+      mote.style.animationDuration = (15 + Math.random() * 25) + 's';
+      mote.style.animationDelay = (Math.random() * 20) + 's';
+      container.appendChild(mote);
+    }
+  }
+
+  // ===== RENDER =====
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.textContent;
+  }
+
+  function renderChapterList() {
+    chapterListEl.textContent = '';
+
+    acts.forEach(function(act, actIdx) {
+      var actEl = document.createElement('div');
+      actEl.className = 'act' + (state.collapsedActs.indexOf(actIdx) >= 0 ? ' act--collapsed' : '');
+      actEl.dataset.actIdx = actIdx;
+
+      // Header
+      var header = document.createElement('div');
+      header.className = 'act__header';
+
+      var chevronSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chevronSvg.setAttribute('class', 'act__chevron');
+      chevronSvg.setAttribute('viewBox', '0 0 24 24');
+      chevronSvg.setAttribute('fill', 'none');
+      chevronSvg.setAttribute('stroke', 'currentColor');
+      chevronSvg.setAttribute('stroke-width', '2');
+      chevronSvg.setAttribute('stroke-linecap', 'round');
+      chevronSvg.setAttribute('stroke-linejoin', 'round');
+      var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      polyline.setAttribute('points', '6 9 12 15 18 9');
+      chevronSvg.appendChild(polyline);
+      header.appendChild(chevronSvg);
+
+      var info = document.createElement('div');
+      info.className = 'act__info';
+      var nameEl = document.createElement('div');
+      nameEl.className = 'act__name';
+      nameEl.textContent = act.name;
+      info.appendChild(nameEl);
+      var descEl = document.createElement('div');
+      descEl.className = 'act__desc';
+      descEl.textContent = act.description;
+      info.appendChild(descEl);
+      header.appendChild(info);
+
+      header.addEventListener('click', (function(idx) {
+        return function() { toggleAct(idx); };
+      })(actIdx));
+      actEl.appendChild(header);
+
+      // Chapters
+      var chaptersEl = document.createElement('div');
+      chaptersEl.className = 'act__chapters';
+
+      act.chapters.forEach(function(ch) {
+        var globalIdx = allChapters.findIndex(function(c) { return c.file === ch.file; });
+        var chEl = document.createElement('div');
+        chEl.className = 'chapter';
+        chEl.dataset.idx = globalIdx;
+        if (globalIdx === state.currentIndex) chEl.classList.add('chapter--active');
+        if (state.completedChapters.indexOf(globalIdx) >= 0) chEl.classList.add('chapter--completed');
+
+        // Number badge
+        var numEl = document.createElement('div');
+        numEl.className = 'chapter__num';
+        var numText = document.createElement('span');
+        numText.className = 'chapter__num-text';
+        numText.textContent = ch.isEpilogue ? 'E' : ch.num;
+        numEl.appendChild(numText);
+        chEl.appendChild(numEl);
+
+        // Title
+        var titleEl = document.createElement('span');
+        titleEl.className = 'chapter__title';
+        titleEl.textContent = (ch.isEpilogue ? 'Epilogue: ' : '') + ch.title;
+        chEl.appendChild(titleEl);
+
+        // Duration
+        var durEl = document.createElement('span');
+        durEl.className = 'chapter__duration';
+        durEl.dataset.file = ch.file;
+        if (durations[ch.file]) {
+          durEl.textContent = formatTime(durations[ch.file]);
+        } else {
+          var spinEl = document.createElement('span');
+          spinEl.className = 'spinner';
+          durEl.appendChild(spinEl);
+        }
+        chEl.appendChild(durEl);
+
+        // Play icon
+        var playSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        playSvg.setAttribute('class', 'chapter__play-icon');
+        playSvg.setAttribute('viewBox', '0 0 24 24');
+        playSvg.setAttribute('fill', 'currentColor');
+        var playPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        playPoly.setAttribute('points', '6 3 20 12 6 21 6 3');
+        playSvg.appendChild(playPoly);
+        chEl.appendChild(playSvg);
+
+        chEl.addEventListener('click', (function(idx) {
+          return function() { playChapter(idx); };
+        })(globalIdx));
+
+        chaptersEl.appendChild(chEl);
+      });
+
+      actEl.appendChild(chaptersEl);
+      chapterListEl.appendChild(actEl);
+
+      // Set max-height for animation
+      if (state.collapsedActs.indexOf(actIdx) < 0) {
+        requestAnimationFrame(function() {
+          chaptersEl.style.maxHeight = chaptersEl.scrollHeight + 'px';
+        });
+      }
+    });
+  }
+
+  function toggleAct(actIdx) {
+    var idx = state.collapsedActs.indexOf(actIdx);
+    if (idx >= 0) {
+      state.collapsedActs.splice(idx, 1);
+    } else {
+      state.collapsedActs.push(actIdx);
+    }
+    saveState();
+    renderChapterList();
+  }
+
+  // ===== DURATION LOADING =====
+  function loadDurations() {
+    allChapters.forEach(function(ch) {
+      var tempAudio = new Audio();
+      tempAudio.preload = 'metadata';
+      tempAudio.addEventListener('loadedmetadata', function() {
+        durations[ch.file] = tempAudio.duration;
+        var durEls = document.querySelectorAll('.chapter__duration');
+        durEls.forEach(function(el) {
+          if (el.dataset.file === ch.file) {
+            el.textContent = formatTime(tempAudio.duration);
+          }
+        });
+      });
+      tempAudio.addEventListener('error', function() {
+        var durEls = document.querySelectorAll('.chapter__duration');
+        durEls.forEach(function(el) {
+          if (el.dataset.file === ch.file) {
+            el.textContent = '--:--';
+          }
+        });
+      });
+      tempAudio.src = ch.file;
+    });
+  }
+
+  // ===== PLAYBACK =====
+  function playChapter(index) {
+    if (index < 0 || index >= allChapters.length) return;
+    var ch = allChapters[index];
+    var resumeTime = 0;
+
+    // If resuming same chapter with saved time
+    if (state.currentIndex === index && state.currentTime > 0) {
+      resumeTime = state.currentTime;
+    } else if (state.currentIndex !== index) {
+      resumeTime = 0;
+    }
+
+    state.currentIndex = index;
+    state.currentTime = 0;
+    audio.src = ch.file;
+    audio.playbackRate = state.playbackSpeed;
+    audio.volume = state.volume;
+
+    if (resumeTime > 0) {
+      audio.addEventListener('loadedmetadata', function onMeta() {
+        audio.currentTime = resumeTime;
+        audio.removeEventListener('loadedmetadata', onMeta);
+      });
+    }
+
+    audio.play().then(function() {
+      setPlayingState(true);
+    }).catch(function() {
+      setPlayingState(false);
+    });
+
+    updatePlayerInfo();
+    updateChapterHighlight();
+    playerEl.classList.remove('player--hidden');
+    saveState();
+
+    // Expand the act if collapsed
+    if (state.collapsedActs.indexOf(ch.actIdx) >= 0) {
+      toggleAct(ch.actIdx);
+    }
+
+    // Scroll active chapter into view
+    requestAnimationFrame(function() {
+      var activeEl = document.querySelector('.chapter--active');
+      if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  function togglePlay() {
+    if (state.currentIndex < 0) {
+      playChapter(0);
+      return;
+    }
+    if (audio.paused) {
+      audio.play().then(function() { setPlayingState(true); }).catch(function() {});
+    } else {
+      audio.pause();
+      setPlayingState(false);
+    }
+  }
+
+  function setPlayingState(playing) {
+    isPlaying = playing;
+    iconPlay.style.display = playing ? 'none' : 'block';
+    iconPause.style.display = playing ? 'block' : 'none';
+    if (playing) {
+      btnPlay.classList.add('btn-play--playing');
+    } else {
+      btnPlay.classList.remove('btn-play--playing');
+    }
+    btnPlay.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+  }
+
+  function nextChapter() {
+    if (state.currentIndex < allChapters.length - 1) {
+      state.currentTime = 0;
+      playChapter(state.currentIndex + 1);
+    }
+  }
+
+  function prevChapter() {
+    if (audio.currentTime > 3 && state.currentIndex >= 0) {
+      audio.currentTime = 0;
+      return;
+    }
+    if (state.currentIndex > 0) {
+      state.currentTime = 0;
+      playChapter(state.currentIndex - 1);
+    }
+  }
+
+  function seek(seconds) {
+    if (state.currentIndex < 0 || !audio.duration) return;
+    audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + seconds));
+  }
+
+  function setVolume(v) {
+    state.volume = Math.max(0, Math.min(1, Math.round(v * 100) / 100));
+    audio.volume = state.volume;
+    volumeSlider.value = state.volume;
+    updateMuteIcon();
+    saveState();
+  }
+
+  function toggleMute() {
+    if (audio.volume > 0) {
+      state._preMuteVolume = state.volume;
+      setVolume(0);
+    } else {
+      setVolume(state._preMuteVolume || 1);
+    }
+  }
+
+  function updateMuteIcon() {
+    var muted = state.volume === 0;
+    iconVolume.style.display = muted ? 'none' : 'block';
+    iconMuted.style.display = muted ? 'block' : 'none';
+  }
+
+  var speeds = [0.75, 1, 1.25, 1.5, 2];
+  function cycleSpeed() {
+    var currentIdx = speeds.indexOf(state.playbackSpeed);
+    var nextIdx = (currentIdx + 1) % speeds.length;
+    state.playbackSpeed = speeds[nextIdx];
+    audio.playbackRate = state.playbackSpeed;
+    btnSpeed.textContent = state.playbackSpeed + 'x';
+    saveState();
+  }
+
+  function updatePlayerInfo() {
+    if (state.currentIndex < 0) return;
+    var ch = allChapters[state.currentIndex];
+    var prefix = ch.isEpilogue ? 'Epilogue' : 'Chapter ' + ch.num;
+    playerTitle.textContent = prefix + ': ' + ch.title;
+    playerAct.textContent = ch.actName;
+  }
+
+  function updateChapterHighlight() {
+    document.querySelectorAll('.chapter').forEach(function(el) {
+      var idx = parseInt(el.dataset.idx, 10);
+      if (idx === state.currentIndex) {
+        el.classList.add('chapter--active');
+      } else {
+        el.classList.remove('chapter--active');
+      }
+      if (state.completedChapters.indexOf(idx) >= 0) {
+        el.classList.add('chapter--completed');
+      } else {
+        el.classList.remove('chapter--completed');
+      }
+    });
+  }
+
+  // ===== AUDIO EVENTS =====
+  audio.addEventListener('timeupdate', function() {
+    if (!audio.duration) return;
+    var pct = (audio.currentTime / audio.duration) * 100;
+    progressFill.style.width = pct + '%';
+    timeElapsed.textContent = formatTime(audio.currentTime);
+    timeTotal.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('ended', function() {
+    if (state.currentIndex >= 0 && state.completedChapters.indexOf(state.currentIndex) < 0) {
+      state.completedChapters.push(state.currentIndex);
+    }
+    setPlayingState(false);
+    updateChapterHighlight();
+    saveState();
+    // Auto-advance
+    if (state.currentIndex < allChapters.length - 1) {
+      state.currentTime = 0;
+      playChapter(state.currentIndex + 1);
+    }
+  });
+
+  audio.addEventListener('loadedmetadata', function() {
+    timeTotal.textContent = formatTime(audio.duration);
+    if (state.currentIndex >= 0) {
+      durations[allChapters[state.currentIndex].file] = audio.duration;
+    }
+  });
+
+  // Progress seeking
+  var isDragging = false;
+
+  function seekFromEvent(e) {
+    if (state.currentIndex < 0 || !audio.duration) return;
+    var rect = progressTrack.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    audio.currentTime = pct * audio.duration;
+  }
+
+  progressWrap.addEventListener('click', seekFromEvent);
+  progressWrap.addEventListener('mousedown', function() {
+    if (state.currentIndex >= 0 && audio.duration) isDragging = true;
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (isDragging) seekFromEvent(e);
+  });
+  document.addEventListener('mouseup', function() { isDragging = false; });
+
+  // Touch seeking
+  progressWrap.addEventListener('touchstart', function(e) {
+    if (state.currentIndex >= 0 && audio.duration) {
+      isDragging = true;
+      seekFromTouch(e);
+    }
+  }, { passive: true });
+  progressWrap.addEventListener('touchmove', function(e) {
+    if (isDragging) seekFromTouch(e);
+  }, { passive: true });
+  progressWrap.addEventListener('touchend', function() { isDragging = false; });
+
+  function seekFromTouch(e) {
+    if (state.currentIndex < 0 || !audio.duration || !e.touches.length) return;
+    var rect = progressTrack.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (e.touches[0].clientX - rect.left) / rect.width));
+    audio.currentTime = pct * audio.duration;
+  }
+
+  // ===== CONTROLS =====
+  btnPlay.addEventListener('click', togglePlay);
+  btnPrev.addEventListener('click', prevChapter);
+  btnNext.addEventListener('click', nextChapter);
+  btnMute.addEventListener('click', toggleMute);
+  volumeSlider.addEventListener('input', function(e) { setVolume(parseFloat(e.target.value)); });
+  btnSpeed.addEventListener('click', cycleSpeed);
+  btnHelp.addEventListener('click', function() { helpOverlay.classList.toggle('help-overlay--visible'); });
+  helpClose.addEventListener('click', function() { helpOverlay.classList.remove('help-overlay--visible'); });
+  helpOverlay.addEventListener('click', function(e) {
+    if (e.target === helpOverlay) helpOverlay.classList.remove('help-overlay--visible');
+  });
+
+  // ===== KEYBOARD =====
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    switch (e.key) {
+      case ' ':
+        e.preventDefault();
+        togglePlay();
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        seek(e.shiftKey ? -30 : -10);
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        seek(e.shiftKey ? 30 : 10);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setVolume(state.volume + 0.05);
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        setVolume(state.volume - 0.05);
+        break;
+      case 'n': case 'N':
+        nextChapter();
+        break;
+      case 'p': case 'P':
+        prevChapter();
+        break;
+      case 'm': case 'M':
+        toggleMute();
+        break;
+      case '?':
+        helpOverlay.classList.toggle('help-overlay--visible');
+        break;
+      case '1': case '2': case '3': case '4':
+        jumpToAct(parseInt(e.key, 10) - 1);
+        break;
+      case 'Escape':
+        helpOverlay.classList.remove('help-overlay--visible');
+        break;
+    }
+  });
+
+  function jumpToAct(actIdx) {
+    if (actIdx < 0 || actIdx >= acts.length) return;
+    var firstChapter = allChapters.findIndex(function(c) { return c.actIdx === actIdx; });
+    if (firstChapter >= 0) {
+      state.currentTime = 0;
+      playChapter(firstChapter);
+    }
+  }
+
+  // ===== UTILS =====
+  function formatTime(seconds) {
+    if (!seconds || isNaN(seconds)) return '0:00';
+    var h = Math.floor(seconds / 3600);
+    var m = Math.floor((seconds % 3600) / 60);
+    var s = Math.floor(seconds % 60);
+    if (h > 0) {
+      return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    }
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  // ===== MEDIA SESSION =====
+  function updateMediaSession() {
+    if (!('mediaSession' in navigator) || state.currentIndex < 0) return;
+    var ch = allChapters[state.currentIndex];
+    var prefix = ch.isEpilogue ? 'Epilogue' : 'Chapter ' + ch.num;
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: prefix + ': ' + ch.title,
+      artist: 'Narrated by Ava',
+      album: 'Inner Authority: The Tea House'
+    });
+    navigator.mediaSession.setActionHandler('play', function() { audio.play(); setPlayingState(true); });
+    navigator.mediaSession.setActionHandler('pause', function() { audio.pause(); setPlayingState(false); });
+    navigator.mediaSession.setActionHandler('previoustrack', prevChapter);
+    navigator.mediaSession.setActionHandler('nexttrack', nextChapter);
+    navigator.mediaSession.setActionHandler('seekbackward', function() { seek(-10); });
+    navigator.mediaSession.setActionHandler('seekforward', function() { seek(10); });
+  }
+
+  audio.addEventListener('play', updateMediaSession);
+  audio.addEventListener('pause', updateMediaSession);
+
+  // ===== THEME TOGGLE (portal pattern) =====
+  var themeToggleBtn = document.getElementById('themeToggle');
+
+  function getEffectiveTheme() {
+    var saved = localStorage.getItem('ia-theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light-theme');
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.classList.remove('light-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    themeToggleBtn.textContent = theme === 'light' ? '\u263E' : '\u2600';
+    themeToggleBtn.title = theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme';
+  }
+
+  function toggleTheme() {
+    var current = getEffectiveTheme();
+    var next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('ia-theme', next);
+    applyTheme(next);
+  }
+
+  themeToggleBtn.addEventListener('click', toggleTheme);
+  applyTheme(getEffectiveTheme());
+
+  // Listen for OS theme changes (when no manual override)
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function() {
+    if (!localStorage.getItem('ia-theme')) applyTheme(getEffectiveTheme());
+  });
+
+  // ===== INIT =====
+  loadState();
+  createParticles();
+  renderChapterList();
+  loadDurations();
+
+  // Restore volume and speed
+  audio.volume = state.volume;
+  volumeSlider.value = state.volume;
+  audio.playbackRate = state.playbackSpeed;
+  btnSpeed.textContent = state.playbackSpeed + 'x';
+  updateMuteIcon();
+
+  // Restore position
+  if (state.currentIndex >= 0 && state.currentIndex < allChapters.length) {
+    var ch = allChapters[state.currentIndex];
+    audio.src = ch.file;
+    audio.preload = 'metadata';
+
+    var savedTime = state.currentTime;
+    if (savedTime > 0) {
+      audio.addEventListener('loadedmetadata', function onMeta() {
+        audio.currentTime = savedTime;
+        audio.removeEventListener('loadedmetadata', onMeta);
+        var pct = (savedTime / audio.duration) * 100;
+        progressFill.style.width = pct + '%';
+        timeElapsed.textContent = formatTime(savedTime);
+        timeTotal.textContent = formatTime(audio.duration);
+      });
+    }
+
+    updatePlayerInfo();
+    updateChapterHighlight();
+    playerEl.classList.remove('player--hidden');
+    state.currentTime = savedTime;
+  }
+
+  // Save on unload
+  window.addEventListener('beforeunload', function() {
+    if (state.currentIndex >= 0) {
+      state.currentTime = audio.currentTime;
+    }
+    saveState();
+  });
+
+  // Periodic save
+  setInterval(function() {
+    if (state.currentIndex >= 0 && !audio.paused) {
+      state.currentTime = audio.currentTime;
+      saveState();
+    }
+  }, 10000);
+
+})();
+</script>
+</body>
+</html>
