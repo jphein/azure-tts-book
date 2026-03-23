@@ -105,4 +105,3 @@ Reading: chapter.txt
 | `.env` | ❌ | Your actual credentials (git-ignored) |
 | `text/` | ❌ | Source text files (git-ignored) |
 | `audio/` | ❌ | Generated MP3s (git-ignored — large binaries) |
-| `.claude/` | ❌ | Local Claude Code context (git-ignored) |
