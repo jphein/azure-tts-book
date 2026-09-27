@@ -105,3 +105,7 @@ Reading: chapter.txt
 | `.env` | ❌ | Your actual credentials (git-ignored) |
 | `text/` | ❌ | Source text files (git-ignored) |
 | `audio/` | ❌ | Generated MP3s (git-ignored — large binaries) |
+
+## License
+
+AGPL-3.0-or-later © 2026 Jeffrey Pine Hein. See [LICENSE](LICENSE).
